@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+
 const tmi = require('tmi.js');
 require('dotenv').config();
 
@@ -56,11 +59,20 @@ function autoJoinRaffle(argList) {
   const channel = argList['channel'];
   console.log(argList['context'].username)
 
-  if (channel.length == twitchChannel.length && argList['context'].username == twitchChannel) {
-      console.log('I will join.');
-      return ('!join');
-    }
+  if (channel == twitchChannel && argList['context'].username == twitchChannel) {
+    console.log('I will join.');
+
+    return ('!join');
   }
   console.log('Fake raffle.');
+
   return ('')
 }
+
+app.get('/', (req, res) => {
+  res.send('Waiting...')
+});
+
+app.listen(3000, () => {
+  console.log(`Server started on ${twitchChannel}`);
+});
