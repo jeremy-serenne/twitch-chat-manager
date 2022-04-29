@@ -7,6 +7,7 @@
     "@replit/database": "^2.0.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
+    "axios": "^0.27.2",
     "connect-livereload": "^0.6.1",
     "database": "^0.0.2",
     "dotenv": "^16.0.0",
