@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const axios = require('axios');
+
 const Database = require("@replit/database");
 const db = new Database();
 
@@ -49,7 +51,7 @@ client.on('message', async (channel, context, message) => {
 
   const argsDict = {channel: channel.slice(1), context: context, args: message.slice(1).split(' ')};
 
-  let res = handleCmd(argsDict);
+  let res = await handleCmd(argsDict);
   if (res) {
     await delay(5000);
   }
@@ -59,14 +61,15 @@ client.on('message', async (channel, context, message) => {
 /**
  * @param {Object} argsDict - Dict with all usefull arguments
  */
-function handleCmd(argsDict) {
+async function handleCmd(argsDict) {
   const command = argsDict['args'].shift().toLowerCase();
   const { response } = commands[command] || {};
   let res = '';
 
-  if (argsDict['channel'] != twitchChannel || argsDict['context'].username != twitchChannel)
+  if (argsDict['channel'] != twitchChannel || !(await isStreamerOrModerator(argsDict['context'].username))) {
     return (res);
-
+  }
+  
   console.log(`${argsDict['context'].username}:${command}`);
   
   if (typeof response === 'function') {
@@ -75,6 +78,22 @@ function handleCmd(argsDict) {
     res = response;
   }
   return (res);
+}
+
+/**
+ * @param {String} user - User sending the message
+ */
+async function isStreamerOrModerator(user) {
+  let streamerAndModeratorsList = [];
+  let chatters = '';
+
+  await axios.get(`http://tmi.twitch.tv/group/user/${twitchChannel}/chatters`)
+  .then(res => {
+    chatters = res.data.chatters;
+    streamerAndModeratorsList = chatters.broadcaster.concat(chatters.moderators);
+  })
+  .catch(error => {});
+  return (streamerAndModeratorsList.includes(user));
 }
 
 /* returned response with cmd !raffle */
