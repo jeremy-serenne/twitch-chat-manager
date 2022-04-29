@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@replit/database": "^2.0.1",
+    "connect-livereload": "^0.6.1",
+    "database": "^0.0.2",
     "dotenv": "^16.0.0",
     "express": "^4.18.0",
+    "livereload": "^0.9.3",
     "node-fetch": "^2.6.7",
     "tmi.js": "^1.8.5",
     "tr46": "^0.0.3",

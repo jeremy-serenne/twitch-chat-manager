@@ -1,17 +1,27 @@
 const express = require('express');
 const app = express();
 
+const Database = require("@replit/database");
+const db = new Database();
+
+db.list().then(keys => {console.log(keys)});
+
 const tmi = require('tmi.js');
 require('dotenv').config();
 
 const twitchChannel = process.env['TWITCH_CHANNEL'];
 
+db.get(`nb_raffles_${twitchChannel}`).then(value => {
+  if (!value)
+    db.set(`nb_raffles_${twitchChannel}`, 0).then(() => {});
+});
+
 const commands = {
   // website: {
-  //   response: '!join'
-  // }
+  //   response: 'https://website'
+  // },
   raffle: {
-    response: autoJoinRaffle
+    response: cmdRaffle
   }
 }
 
@@ -37,40 +47,50 @@ client.connect();
 client.on('message', async (channel, context, message) => {
   if (!message.startsWith('!')) return;
 
-  const args = message.slice(1).split(' ');
-	const command = args.shift().toLowerCase();
+  const argsDict = {channel: channel.slice(1), context: context, args: message.slice(1).split(' ')};
 
-  const argList = {channel: channel.slice(1), context: context, args: args}
-  
-  const { response } = commands[command] || {};
-
-  if ( typeof response === 'function' ) {
-    res = response(argList)
-    if (res)
-      await delay(5000);
-    client.say(channel, res);
-  } else if ( typeof response === 'string' ) {
-    client.say(channel, response);
+  let res = handleCmd(argsDict);
+  if (res) {
+    await delay(5000);
   }
+  client.say(channel, res);
 });
 
-/* Join when streamer !raffle*/
-function autoJoinRaffle(argList) {
-  const channel = argList['channel'];
-  console.log(argList['context'].username)
+/**
+ * @param {Object} argsDict - Dict with all usefull arguments
+ */
+function handleCmd(argsDict) {
+  const command = argsDict['args'].shift().toLowerCase();
+  const { response } = commands[command] || {};
+  let res = '';
 
-  if (channel == twitchChannel && argList['context'].username == twitchChannel) {
-    console.log('I will join.');
+  if (argsDict['channel'] != twitchChannel || argsDict['context'].username != twitchChannel)
+    return (res);
 
-    return ('!join');
+  console.log(`${argsDict['context'].username}:${command}`);
+  
+  if (typeof response === 'function') {
+    res = response(argsDict);
+  } else if (typeof response === 'string') {
+    res = response;
   }
-  console.log('Fake raffle.');
-
-  return ('')
+  return (res);
 }
 
+/* returned response with cmd !raffle */
+function cmdRaffle(argsDict) {
+  db.get(`nb_raffles_${twitchChannel}`).then(value => {
+    db.set(`nb_raffles_${twitchChannel}`, value+1).then(() => {});
+  });
+  return ('!join');
+}
+
+// TODO: put server code in a separate file, re-order the repo, add comments and add args type everywhere
+
 app.get('/', (req, res) => {
-  res.send('Waiting...')
+  db.get(`nb_raffles_${twitchChannel}`).then(value => {
+    res.send(`${value} raffles on ${twitchChannel}\'s channel since server up.`);
+  });
 });
 
 app.listen(3000, () => {
