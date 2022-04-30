@@ -4,4 +4,4 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 ## Description
 
-Twitch bot handling some viewer actions, so you can mute the stream or be afk it doesn't matter.
+Handling actions as a viewer.
