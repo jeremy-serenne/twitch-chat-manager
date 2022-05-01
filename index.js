@@ -13,19 +13,25 @@ require('dotenv').config();
 
 const twitchChannel = process.env['TWITCH_CHANNEL'];
 
-db.get(`nb_raffles_${twitchChannel}`).then(value => {
-  if (!value)
-    db.set(`nb_raffles_${twitchChannel}`, 0).then(() => {});
-});
+const cmdAndResList = process.env['LIST_OF_CMDS'].split(';'); // format cmd:res;cmd:res
 
-const commands = {
-  // website: {
-  //   response: 'https://website'
-  // },
-  raffle: {
-    response: cmdRaffle
+let cmdDict = {};
+
+async function setUpDB() {
+  for (var i in cmdAndResList) {
+    var cmdAndRes = cmdAndResList[i].split(':');
+    cmdDict[cmdAndRes[0]] = cmdAndRes[1];
+  }
+  
+  for (var cmd in cmdDict) {
+    await db.get(`nb_${cmd}s_${twitchChannel}`).then(value => {
+      if (!value)
+        db.set(`nb_${cmd}s_${twitchChannel}`, 0).then(() => {});
+    });
   }
 }
+
+setUpDB(); // check DB
 
 let options = {
   connection: {
@@ -53,6 +59,7 @@ client.on('message', async (channel, context, message) => {
 
   let res = await handleCmd(argsDict);
   if (res) {
+    client.say(channel, "Prayge i"); // Dodge the 30sec to wait in case of identical message error
     await delay(5000);
   }
   client.say(channel, res);
@@ -63,7 +70,6 @@ client.on('message', async (channel, context, message) => {
  */
 async function handleCmd(argsDict) {
   const command = argsDict['args'].shift().toLowerCase();
-  const { response } = commands[command] || {};
   let res = '';
 
   if (argsDict['channel'] != twitchChannel || !(await isStreamerOrModerator(argsDict['context'].username))) {
@@ -71,12 +77,9 @@ async function handleCmd(argsDict) {
   }
   
   console.log(`${argsDict['context'].username}:${command}`);
-  
-  if (typeof response === 'function') {
-    res = response(argsDict);
-  } else if (typeof response === 'string') {
-    res = response;
-  }
+
+  res = returnResFromCmd(command);
+
   return (res);
 }
 
@@ -96,19 +99,34 @@ async function isStreamerOrModerator(user) {
   return (streamerAndModeratorsList.includes(user));
 }
 
-/* returned response with cmd !raffle */
-function cmdRaffle(argsDict) {
-  db.get(`nb_raffles_${twitchChannel}`).then(value => {
-    db.set(`nb_raffles_${twitchChannel}`, value+1).then(() => {});
+/* returned response related to cmd */
+function returnResFromCmd(command) {
+  if (!cmdDict[command]) { 
+    return '';
+  }
+
+  db.get(`nb_${command}s_${twitchChannel}`).then(value => {
+    db.set(`nb_${command}s_${twitchChannel}`, value+1).then(() => {});
   });
-  return ('!join');
+  return (cmdDict[command]);
 }
 
 // TODO: put server code in a separate file, re-order the repo, add comments and add args type everywhere
 
+async function getDatas() {
+  let textResponse = '';
+  for (var cmd in cmdDict) {
+    await db.get(`nb_${cmd}s_${twitchChannel}`).then(value => {
+      textResponse += `${value} ${cmd}s on ${twitchChannel}\'s channel since server up.
+`;
+    });
+  }
+  return textResponse;
+}
+
 app.get('/', (req, res) => {
-  db.get(`nb_raffles_${twitchChannel}`).then(value => {
-    res.send(`${value} raffles on ${twitchChannel}\'s channel since server up.`);
+  db.get(`nb_${Object.keys(cmdDict)[0]}s_${twitchChannel}`).then(value => {
+    res.send(`${value} ${Object.keys(cmdDict)[0]}s on ${twitchChannel}\'s channel since server up.`);
   });
 });
 
