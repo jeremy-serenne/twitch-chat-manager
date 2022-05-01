@@ -15,16 +15,19 @@ const twitchChannel = process.env['TWITCH_CHANNEL'];
 
 const cmdAndResList = process.env['LIST_OF_CMDS'].split(';'); // format cmd:res;cmd:res
 
-const cmdLineList = process.env['LIST_OF_CMDS_LINE'].split(';'); // format cmd:r,es;cmd:res  , -> end of line
+let cmdLineList = ''; // format cmd:r,es;cmd:res  
+//, -> end of line
+//' -> :
 
 let cmdDict = {};
 
 let cmdLineDict = {};
 
 function setUpCmdLineDict() {
+  cmdLineList = process.env['LIST_OF_CMDS_LINE'].split(';');
   for (var i in cmdLineList) {
     var cmdAndRes = cmdLineList[i].split(':');
-    cmdLineDict[cmdAndRes[0]] = cmdAndRes[1];
+    cmdLineDict[cmdAndRes[0]] = cmdAndRes[1].replace(/'/g, ':');
   }
 }
 
