@@ -76,7 +76,9 @@ client.on('message', async (channel, context, message) => {
   let res = await handleCmd(argsDict);
   if (res) {
     client.say(channel, "i"); // Dodge the 30sec to wait in case of identical message error
-    await delay(5000);
+    console.log(`${res} will be send.`);
+    await delay(3000);
+    console.log(`${res} is sent!`);
   }
   client.say(channel, res);
 });
@@ -159,19 +161,24 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// !cmd:nb
 
 const start = async () =>{
   for await (const line of rl) {
-    if (!cmdLineDict[line]) {
-      console.log(`line=${line}`);
-    } else {
-    var parsedMsg = cmdLineDict[line].split(',');
-       for (var i in parsedMsg) {
-         await delay(1100);
-         client.say(twitchChannel, parsedMsg[i]);
-         // console.log(parsedMsg[i]);
-       }
-    }
+    let cmd = line.split(':')[0];
+    let arg = parseInt(line.split(':')[1]);
+
+    for (let step = 0; step < arg; step++)
+      if (!cmdLineDict[cmd]) {
+        console.log(`line=${cmd}`);
+      } else {
+      var parsedMsg = cmdLineDict[cmd].split(',');
+         for (var i in parsedMsg) {
+           await delay(1100);
+           client.say(twitchChannel, parsedMsg[i]);
+           // console.log(parsedMsg[i]);
+         }
+      }
    }
 }
 
