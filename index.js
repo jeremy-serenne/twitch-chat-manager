@@ -91,7 +91,7 @@ function getBotData(botName, filePath, message) {
     return;
   }
   var logStream = fs.createWriteStream(filePath, {flags: 'a'});
-    logStream.write(`${transaction} ${amount} ${date}`);
+    logStream.write(`${transaction}${amount} ${date}`);
     logStream.end('\n');
 }
 
