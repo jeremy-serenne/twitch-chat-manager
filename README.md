@@ -5,3 +5,9 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 ## Description
 
 Handling actions as a viewer.
+
+## Next steps
+
+- clean code and split it in new files
+- add daily msgs
+- add trigger when stats.txt is edited to upload it in google sheet (webhook imo)
