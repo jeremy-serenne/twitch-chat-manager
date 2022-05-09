@@ -1,2 +1,6 @@
-Transaction(+/-) Amount(dollex) Date(DD/MM/YY) Time(hh/mm/ss)
-+ 11 09/05/2022 16:15:11
+Amount(dollex) Date(DD/MM/YY) Time(hh/mm/ss)
++11 09/05/2022 16:15:11
++16 09/05/2022 16:46:13
++27 09/05/2022 17:17:14
+-16 09/05/2022 17:28:15
++17 09/05/2022 17:48:16
