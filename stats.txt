@@ -1,0 +1,2 @@
+Transaction(+/-) Amount(dollex) Date(DD/MM/YY) Time(hh/mm/ss)
++ 11 09/05/2022 16:15:11
