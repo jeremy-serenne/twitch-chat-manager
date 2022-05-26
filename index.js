@@ -28,6 +28,8 @@ let cmdDict = {};
 
 let cmdLineDict = {};
 
+let lastMsgAuthor = '';
+
 function setUpCmdLineDict() {
   cmdLineList = process.env['LIST_OF_CMDS_LINE'].split(';');
   for (var i in cmdLineList) {
@@ -78,7 +80,7 @@ client.connect();
 //   daily_message.msg1.start(client)
 // });
 
-function getBotData(botName, filePath, message) {
+function getBotData(botName, filePath, message, target) {
   let transaction = '';
   const amount = message.match(/(\d+)/)[0];
   const date = moment().format('DD/MM/YYYY HH:mm:ss');
@@ -87,18 +89,20 @@ function getBotData(botName, filePath, message) {
     transaction = '-';
   } else if (message.includes('+')) {
     transaction = '+';
+  } else if (message.includes('TO')) {
+    transaction = 'TO';
   } else {
     return;
   }
   var logStream = fs.createWriteStream(filePath, {flags: 'a'});
-    logStream.write(`${transaction}${amount} ${date}`);
+    logStream.write(`${transaction}${amount} ${date} ${target}`);
     logStream.end('\n');
 }
 
 client.on('message', async (channel, context, message) => {
 
   if (context.username == botListeningTo) {
-     getBotData(botListeningTo, 'stats.txt', message);
+     getBotData(botListeningTo, 'stats.txt', message, lastMsgAuthor);
      console.log(`${botListeningTo} said ${message}.`);
   }
   if (!message.startsWith('!')) return;
@@ -119,6 +123,7 @@ client.on('message', async (channel, context, message) => {
   if (context.username == process.env['TWITCH_BOT_USERNAME']) {
      console.log(`You said ${message}.`);
   }
+  lastMsgAuthor = context.username;
 });
 
 /**
@@ -240,7 +245,7 @@ const start = async () =>{
       } else {
       var parsedMsg = cmdLineDict[cmd].split(',');
          for (var i in parsedMsg) {
-           await delay(1050);
+           await delay(1100);
            client.say(twitchChannel, parsedMsg[i]);
            // console.log(parsedMsg[i]);
          }
