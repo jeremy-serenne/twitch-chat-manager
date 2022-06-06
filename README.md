@@ -6,8 +6,24 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 Handling actions as a viewer.
 
-## Next steps
+# How to install
+
+- Create a `.env` file in the root of your project and check the .env [model](model.env) to write it.
+
+# How to use
+
+## The console
+
+In the console to write a command, follow this format `!cmd:nb`
+- cmd -> command's name registered in the var env [`LIST_OF_CMDS_LINE`](model.env)
+- nb -> number of occurrences
+
+
+
+
+# Next versions' steps
 
 - clean code and split it in new files
+- add comments and add args type everywhere
 - add daily msgs
 - add trigger when stats.txt is edited to upload it in google sheet (webhook imo)
