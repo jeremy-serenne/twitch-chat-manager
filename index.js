@@ -95,35 +95,42 @@ function getBotData(botName, filePath, message, target) {
     return;
   }
   var logStream = fs.createWriteStream(filePath, {flags: 'a'});
-    logStream.write(`${transaction}${amount} ${date} ${target}`);
+    logStream.write(`${transaction} ${amount} ${date} ${target}`);
     logStream.end('\n');
 }
 
 client.on('message', async (channel, context, message) => {
 
+  if (channel.slice(1) != twitchChannel) {
+    return;
+  }
+  
   if (context.username == botListeningTo) {
      getBotData(botListeningTo, 'stats.txt', message, lastMsgAuthor);
      console.log(`${botListeningTo} said ${message}.`);
   }
-  if (!message.startsWith('!')) return;
 
+  lastMsgAuthor = context.username;
+  
+  if (!message.startsWith('!')) return;
 
   const argsDict = {channel: channel.slice(1), context: context, args: message.slice(1).split(' ')};
 
   let res = await handleCmd(argsDict);
   if (res) {
-    await delay(1000);
-    client.say(channel, "i"); // Dodge the 30sec to wait in case of identical message error
     console.log(`${res} will be send.`);
-    await delay(1500);
+    await delay(4000);
+    client.say(channel, res);
     console.log(`${res} was sent!`);
+    
+    await delay(2000);
+    client.say(channel, "Prayge i"); // Dodge the 30sec to wait in case of identical message error
   }
-  client.say(channel, res);
 
   if (context.username == process.env['TWITCH_BOT_USERNAME']) {
      console.log(`You said ${message}.`);
   }
-  lastMsgAuthor = context.username;
+  
 });
 
 /**
