@@ -14,7 +14,7 @@ Handling actions as a viewer.
 
 ## The console
 
-In the console to write a command, follow this format `!cmd:nb`
+To write a command in the console, follow this format `!cmd:nb`
 - cmd -> command's name registered in the var env [`LIST_OF_CMDS_LINE`](model.env)
 - nb -> number of occurrences
 
@@ -26,4 +26,5 @@ In the console to write a command, follow this format `!cmd:nb`
 - clean code and split it in new files
 - add comments and add args type everywhere
 - add daily msgs
+- replace console with web interface
 - add trigger when stats.txt is edited to upload it in google sheet (webhook imo)

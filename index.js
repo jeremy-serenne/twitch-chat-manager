@@ -25,6 +25,8 @@ clientHandler.client.on('message', async (channel, context, message) => {
   if (!message.startsWith('!')) return;
 
   if ((new Date().getHours()) < 11) return; // shutdown script when live is offline
+  
+  return;//off
 
   const argsDict = { channel: channel.slice(1), context: context, args: message.slice(1).split(' ') };
 
@@ -39,7 +41,7 @@ clientHandler.client.on('message', async (channel, context, message) => {
     clientHandler.client.say(channel, "Prayge i"); // Dodge the 30sec to wait in case of identical message error
   }
 
-  if (context.username == process.env['TWITCH_BOT_USERNAME']) {
+  if (context.username == commonValues.username) {
     console.log(`You said ${message}.`);
   }
 
