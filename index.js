@@ -18,13 +18,13 @@ clientHandler.client.on('message', async (channel, context, message) => {
     return;
   }
 
-  botListener.channelBotListener(context.username, message, lastMsgAuthor);
+  botListener.channelBotListener(context.username, message, lastMsgAuthor); // save data from dollexbot to stats.txt
 
   lastMsgAuthor = context.username;
 
   if (!message.startsWith('!')) return;
 
-  //if ((new Date().getHours()) < 11) return; // shutdown script when live is offline
+  //if ((new Date().getHours()) < 11) return; // shutdown script when live is offline (between 0 and 11am)
   // or
   // return;//off
 
@@ -33,12 +33,12 @@ clientHandler.client.on('message', async (channel, context, message) => {
   let res = await cmdHandler.handleCmd(argsDict);
   if (res) {
     console.log(`${res} will be send.`);
-    await timeHandler.delay(4000);
-    clientHandler.client.say(channel, res);
+    await timeHandler.delay(4000); // waiting time before response is send
+    clientHandler.client.say(channel, res); // sending the response to the twitch channel
     console.log(`${res} was sent!`);
 
     await timeHandler.delay(2000);
-    clientHandler.client.say(channel, "Prayge i"); // Dodge the 30sec to wait in case of identical message error
+    clientHandler.client.say(channel, "Prayge i"); // sending a message to the twitch channel so as to avoid the 30 seconds wait for a similar message error
   }
 
   if (context.username == commonValues.username) {
@@ -47,7 +47,7 @@ clientHandler.client.on('message', async (channel, context, message) => {
 
 });
 
-
+// what will be displayed on the web url
 async function getDatas() {
   let textResponse = '';
   for (var cmd in commonValues.cmdDict) {
@@ -60,7 +60,7 @@ async function getDatas() {
 }
 
 
-
+// display list of channels on the console
 server.app.listen(commonValues.serverPort, () => {
   console.log(`Server started on ${commonValues.serverPort} | ${commonValues.twitchChannel}`);
 });
