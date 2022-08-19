@@ -3,7 +3,7 @@ const consoleHandler = require('./src/console_handler.js');
 const clientHandler = require('./src/twitch_client_handler.js');
 const timeHandler = require('./src/time_functions.js');
 const dbHandler = require('./src/setup_database.js');
-const server = require('./src/server.js');
+const server = require('./server/server.js');
 const commonValues = require('./src/common_values.js');
 const cmdHandler = require('./src/command_handler.js');
 
@@ -24,9 +24,9 @@ clientHandler.client.on('message', async (channel, context, message) => {
 
   if (!message.startsWith('!')) return;
 
-  if ((new Date().getHours()) < 11) return; // shutdown script when live is offline
-  
-  return;//off
+  //if ((new Date().getHours()) < 11) return; // shutdown script when live is offline
+  // or
+  // return;//off
 
   const argsDict = { channel: channel.slice(1), context: context, args: message.slice(1).split(' ') };
 
@@ -61,8 +61,8 @@ async function getDatas() {
 
 
 
-server.app.listen(3000, () => {
-  console.log(`Server started on ${commonValues.twitchChannel}`);
+server.app.listen(commonValues.serverPort, () => {
+  console.log(`Server started on ${commonValues.serverPort} | ${commonValues.twitchChannel}`);
 });
 
 consoleHandler.consoleListener();
