@@ -10,6 +10,8 @@ Handling actions as a viewer.
 
 - Create a `.env` file in the root of your project and check the .env [model](model.env) to write it.
 
+:warning: **If you are not using Replit**: you can't execute the program! The project is currently using the database from Replit.
+
 # How to use
 
 ## The console
