@@ -1,3 +1,10 @@
+
+# :warning: MIGRATION (coming in the end of 02/2023) :warning:
+- create db instead of using the one from Replit, 
+- use docker, 
+- host on a free (or not) server.
+
+
 # Viewer Bot
 
 Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**Replit**](https://replit.com/@jeremy-serenne/viewer-twitch-bot) and [**Uptimerobot**](https://uptimerobot.com/)
@@ -22,13 +29,11 @@ To write a command in the console, follow this format `!cmd:nb`
 
 
 
-
-# Next versions' steps
-:warning: MIGRATION Soon - Use real db instead of Replit, use docker, host on a free (or not) server.
+# Next steps
 
 # Backlog
 - clean code and split it in new files
 - add comments and add args type everywhere
 - add daily msgs
 - replace console with web interface
-- add customer trigger for a chat
+- add custom trigger for a chat
