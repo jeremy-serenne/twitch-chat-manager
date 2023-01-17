@@ -24,9 +24,11 @@ To write a command in the console, follow this format `!cmd:nb`
 
 
 # Next versions' steps
+:warning: MIGRATION Soon - Use real db instead of Replit, use docker, host on a free (or not) server.
 
+# Backlog
 - clean code and split it in new files
 - add comments and add args type everywhere
 - add daily msgs
 - replace console with web interface
-- add trigger when stats.txt is edited to upload it in google sheet (webhook imo)
+- add customer trigger for a chat
