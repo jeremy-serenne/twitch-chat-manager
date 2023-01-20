@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  server:
+    build:
+      context: old-version/server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      TWITCH_CLIENT_ID: <YOUR_CLIENT_ID>
+      TWITCH_CLIENT_SECRET: <YOUR_CLIENT_SECRET>
+    command: ["./main"]
+
+  web:
+    build:
+      context: web-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+    command: ["npm", "start"]
+    depends_on:
+      - server
