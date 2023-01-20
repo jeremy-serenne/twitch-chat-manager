@@ -1,0 +1,5 @@
+docs: docs/*
+back: server/*
+front: web-app/*
+readme: README.md
+license: LICENSE
