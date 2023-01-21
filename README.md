@@ -43,7 +43,7 @@ To write a command in the console, follow this format `!cmd:nb`
 
 ## Next Steps
 
-> **Warning**: :rotating_light: MIGRATION :rotating_light: (coming in the end of 02/2023) :warning:
+> 🔜 **Warning**: :rotating_light: MIGRATION :rotating_light: (coming in the end of 02/2023) :warning:
 > - create db instead of using the one from Replit,
 > - use docker,
 > - add web interface,
