@@ -10,7 +10,7 @@ It is designed to:
 > - send pre-made messages using commands,
 > - retrieve chat history,
 > - automate certain tasks such as responding to certain keywords or phrases in the chat,
-> - more coming soon (setup daily messages)
+> ⏳more coming soon (setup daily messages)
 
 > **Warning** : It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
@@ -18,13 +18,9 @@ It is designed to:
 
 Please review and comply with [Twitch's terms of service](https://www.twitch.tv/p/en/legal/terms-of-service/#12-third-party-content) and [community guidelines](https://safety.twitch.tv/s/article/Community-Guidelines) before using this project. The developer and contributors of this project take no responsibility for any violations of Twitch's terms of service as a result of using this project.
 
-## Tech
+## Getting Started
 
-Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**Replit**](https://replit.com/@jeremy-serenne/viewer-twitch-bot) and [**Uptimerobot**](https://uptimerobot.com/)
-
-## Installation
-
-:warning: **If you are not using Replit** : you can't execute the program! The project is currently using the database from Replit.
+> **Warning**: **If you are not using Replit** : you can't execute the program! The project is currently using the database from Replit.
 
 1. Clone the repository
 2. Install dependencies by running `npm install`
@@ -33,7 +29,7 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 ## Usage 
 
-:warning: This is deprecated
+> **Warning**: This may be deprecated
 
 To write a command in the console, follow this format `!cmd:nb`
 - cmd -> command's name registered in the var env [`LIST_OF_CMDS_LINE`](model.env)
@@ -54,6 +50,10 @@ To write a command in the console, follow this format `!cmd:nb`
 - [ ] add daily messages' feature
 - [ ] replace console with web interface
 - [ ] add custom trigger in chat (ie: word)
+
+## Built with
+
+Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**Replit**](https://replit.com/@jeremy-serenne/viewer-twitch-bot) and [**Uptimerobot**](https://uptimerobot.com/)
 
 ## Contributing
 
