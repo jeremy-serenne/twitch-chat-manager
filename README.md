@@ -1,15 +1,16 @@
 ![Repo state](https://img.shields.io/badge/State-Migration-f50730?style=plastic)
 [![GitHub build status](https://img.shields.io/github/actions/workflow/status/jeremy-serenne/twitch-chat-manager/codeql.yml?label=Build&style=plastic)](https://github.com/jeremy-serenne/twitch-chat-manager/actions?query=branch:main)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=plastic)](https://opensource.org/licenses)
+[![License](https://img.shields.io/badge/License-GPL-yellow.svg?style=plastic)](https://opensource.org/licenses)
 
 <h1 align="center">✨ Twitch Chat Manager ✨</h1>
 
 *TwitchChatManager* is a command line interface that allows users to interact with the chat of a Twitch channel.
 
-> It is designed to:
+It is designed to:
 > - send pre-made messages using commands,
 > - retrieve chat history,
-> - and automate certain tasks such as responding to certain keywords or phrases in the chat.
+> - automate certain tasks such as responding to certain keywords or phrases in the chat,
+> - more coming soon (setup daily messages)
 
 > **Warning** : It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
@@ -32,7 +33,7 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 ## Usage 
 
-:warning: This is a deprecated
+:warning: This is deprecated
 
 To write a command in the console, follow this format `!cmd:nb`
 - cmd -> command's name registered in the var env [`LIST_OF_CMDS_LINE`](model.env)
