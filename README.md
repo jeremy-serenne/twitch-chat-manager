@@ -1,6 +1,6 @@
 ![Repo state](https://img.shields.io/badge/State-Migration-f50730?style=plastic)
 [![GitHub build status](https://img.shields.io/github/actions/workflow/status/jeremy-serenne/twitch-chat-manager/codeql.yml?label=Build&style=plastic)](https://github.com/jeremy-serenne/twitch-chat-manager/actions?query=branch:main)
-[![License](https://img.shields.io/badge/License-GPL-yellow.svg?style=plastic)](https://opensource.org/licenses)
+[![License](https://img.shields.io/badge/License-GPL-yellow.svg?style=plastic)](https://github.com/jeremy-serenne/twitch-chat-manager/blob/main/LICENSE)
 
 <h1 align="center">✨ Twitch Chat Manager ✨</h1>
 
