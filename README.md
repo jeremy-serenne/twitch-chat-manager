@@ -11,16 +11,9 @@
 > - retrieve chat history,
 > - and automate certain tasks such as responding to certain keywords or phrases in the chat.
 
-> :info: **Info**: It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
+> **Warning** : It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
-## Disclaimer
-
-> **Warning** :
-> This is a big warning, please read carefully before using the project.
-
-
-:warning: :rotating_light: **Warning**: This is a big warning, please read carefully before using the project. :rotating_light: :warning:
-
+## 📜 Disclaimer
 
 Please review and comply with [Twitch's terms of service](https://www.twitch.tv/p/en/legal/terms-of-service/#12-third-party-content) and [community guidelines](https://safety.twitch.tv/s/article/Community-Guidelines) before using this project. The developer and contributors of this project take no responsibility for any violations of Twitch's terms of service as a result of using this project.
 
