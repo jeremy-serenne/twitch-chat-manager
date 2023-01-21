@@ -1,13 +1,15 @@
-# ✨ Twitch Chat Manager ✨
+![Repo state](https://img.shields.io/badge/State-Migration-f50730?style=plastic)
+[![GitHub build status](https://img.shields.io/github/actions/workflow/status/jeremy-serenne/twitch-chat-manager/codeql.yml?label=Build&style=plastic)](https://github.com/jeremy-serenne/twitch-chat-manager/actions?query=branch:main)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=plastic)](https://opensource.org/licenses)
 
-[![Build Status](https://github.com/jeremy-serenne/twitch-chat-manager?branch=main)]
+<h1 align="center">✨ Twitch Chat Manager ✨</h1>
 
-This project is a command line interface that allows users to interact with the chat of a Twitch channel.
+*TwitchChatManager* is a command line interface that allows users to interact with the chat of a Twitch channel.
 
-It is designed to:
-- enhance the viewing experience for yourself
-- and automate certain tasks such as responding to certain keywords or phrases in the chat.
-
+> It is designed to:
+> - enhance the viewing experience for yourself
+> - sending pre-made messages with one command, retrieving the chat history, and more.
+> - and automate certain tasks such as responding to certain keywords or phrases in the chat.
 > **INFO** It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
 ## Disclaimer
@@ -27,7 +29,7 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 ## Installation
 
 <div style="background-color: #f50730 ; padding:10px;">
-  :warning: **If you are not using Replit**: you can't execute the program! The project is currently using the database from Replit. :warning:
+  :warning: **If you are not using Replit** : you can't execute the program! The project is currently using the database from Replit. :warning:
 </div>
 
 1. Clone the repository
