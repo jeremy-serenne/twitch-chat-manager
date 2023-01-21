@@ -15,7 +15,7 @@
 
 ## Disclaimer
 
-> **Warning** : This is a big warning, please read carefully before using the project.
+**Warning** : This is a big warning, please read carefully before using the project.
 
 
 :warning: :rotating_light: **Warning**: This is a big warning, please read carefully before using the project. :rotating_light: :warning:
