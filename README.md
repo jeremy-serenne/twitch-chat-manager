@@ -9,10 +9,10 @@
 > **Warning** : It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
 ### It is designed to:
-> - send pre-made messages using commands,
-> - retrieve chat history,
-> - automate certain tasks such as responding to certain keywords or phrases in the chat,
-> - ⏳more coming soon (setup daily messages)
+> - Send pre-made messages using commands,
+> - Retrieve chat history,
+> - Automate tasks such as responding to certain keywords or phrases in the chat,
+> - [Next steps](#-next-steps)
 
 ## 📜 Disclaimer
 
@@ -40,16 +40,14 @@ To write a command in the console, follow this format `!cmd:nb`
 ## 🔜 Next Steps
 
 > **Warning**: 🛑 Migration 🛑 (coming in the end of 02/2023) :warning:
-> - create db instead of using the one from Replit,
-> - use docker,
-> - add web interface,
-> - host on a free (or not) server, or only provide a local app.
+> - [ ] create db instead of using the one from Replit,
+> - [ ] use docker,
+> - [ ] add web interface,
+> - [ ] host on a free (or not) server, or only provide a local app.
+> - [ ] clean code, split it in new files, add comments and types
 
-- [ ] clean code, split it in new files
-- [ ] add comments and types
-- [ ] add daily messages' feature
-- [ ] replace console with web interface
 - [ ] add custom trigger in chat (ie: word)
+- [ ] add daily messages' feature
 
 ## Built with
 
