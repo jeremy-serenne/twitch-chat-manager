@@ -7,20 +7,26 @@
 *TwitchChatManager* is a command line interface that allows users to interact with the chat of a Twitch channel.
 
 > It is designed to:
-> - enhance the viewing experience for yourself
-> - sending pre-made messages with one command, retrieving the chat history, and more.
+> - send pre-made messages using commands,
+> - retrieve chat history,
 > - and automate certain tasks such as responding to certain keywords or phrases in the chat.
+
 > **INFO** It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
 ## Disclaimer
 
-Please review and comply with [Twitch's terms of service](https://www.twitch.tv/p/en/legal/terms-of-service/#12-third-party-content) and [community guidelines](https://safety.twitch.tv/s/article/Community-Guidelines) before using this project. The developer and contributors of this project take no responsibility for any violations of Twitch's terms of service as a result of using this project.
+> :warning: **Warning**: This is a big warning, please read carefully before using the project.
 
-> :warning: MIGRATION (coming in the end of 02/2023) :warning:
-> - create db instead of using the one from Replit,
-> - use docker,
-> - add web interface,
-> - host on a free (or not) server, or only provide a local app.
+
+<div style="background-color: #f9f2f4; padding:10px; border: 2px solid #ff0000;">
+  :warning: **Warning**: This is a big warning, please read carefully before using the project.
+</div>
+
+
+:warning: :rotating_light: **Warning**: This is a big warning, please read carefully before using the project. :rotating_light: :warning:
+
+
+Please review and comply with [Twitch's terms of service](https://www.twitch.tv/p/en/legal/terms-of-service/#12-third-party-content) and [community guidelines](https://safety.twitch.tv/s/article/Community-Guidelines) before using this project. The developer and contributors of this project take no responsibility for any violations of Twitch's terms of service as a result of using this project.
 
 ## Tech
 
@@ -28,9 +34,7 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 ## Installation
 
-<div style="background-color: #f50730 ; padding:10px;">
-  :warning: **If you are not using Replit** : you can't execute the program! The project is currently using the database from Replit. :warning:
-</div>
+:warning: **If you are not using Replit** : you can't execute the program! The project is currently using the database from Replit.
 
 1. Clone the repository
 2. Install dependencies by running `npm install`
@@ -39,7 +43,7 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 ## Usage 
 
-:warning: This is a deprecated :warning:
+:warning: This is a deprecated
 
 To write a command in the console, follow this format `!cmd:nb`
 - cmd -> command's name registered in the var env [`LIST_OF_CMDS_LINE`](model.env)
@@ -64,4 +68,4 @@ To write a command in the console, follow this format `!cmd:nb`
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GPL License - see the [LICENSE](LICENSE) file for details
