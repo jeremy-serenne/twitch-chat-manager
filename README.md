@@ -1,14 +1,14 @@
-# Twitch Chat Manager
+# ✨ Twitch Chat Manager ✨
+
+[![Build Status](https://github.com/jeremy-serenne/twitch-chat-manager?branch=main)]
 
 This project is a command line interface that allows users to interact with the chat of a Twitch channel.
-
-It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
 It is designed to:
 - enhance the viewing experience for yourself
 - and automate certain tasks such as responding to certain keywords or phrases in the chat.
 
-> **INFO** This project is currently in beta and I welcome any feedback or bug reports.
+> **INFO** It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
 ## Disclaimer
 
@@ -26,7 +26,9 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 ## Installation
 
-:warning: **If you are not using Replit**: you can't execute the program! The project is currently using the database from Replit.
+<div style="background-color: #f50730 ; padding:10px;">
+  :warning: **If you are not using Replit**: you can't execute the program! The project is currently using the database from Replit. :warning:
+</div>
 
 1. Clone the repository
 2. Install dependencies by running `npm install`
@@ -35,11 +37,13 @@ Made with [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [**
 
 ## Usage 
 
-<span style="color:red">Deprecated</span>: This is a deprecated
+:warning: This is a deprecated :warning:
 
 To write a command in the console, follow this format `!cmd:nb`
 - cmd -> command's name registered in the var env [`LIST_OF_CMDS_LINE`](model.env)
 - nb -> number of occurrences
+
+> **INFO** This project is currently in beta and I welcome any feedback or bug reports.
 
 ## Next Steps
 - [ ] clean code, split it in new files
@@ -59,5 +63,3 @@ To write a command in the console, follow this format `!cmd:nb`
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
-**Free Software, Hell Yeah!**
