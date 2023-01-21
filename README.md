@@ -6,7 +6,7 @@
 
 *TwitchChatManager* is a command line interface that allows users to interact with the chat of a Twitch channel.
 
-It is designed to:
+### It is designed to:
 > - send pre-made messages using commands,
 > - retrieve chat history,
 > - automate certain tasks such as responding to certain keywords or phrases in the chat,
