@@ -41,9 +41,9 @@ To write a command in the console, follow this format `!cmd:nb`
 
 > **INFO** This project is currently in beta and I welcome any feedback or bug reports.
 
-## Next Steps
+## 🔜 Next Steps
 
-> 🔜 **Warning**: :rotating_light: MIGRATION :rotating_light: (coming in the end of 02/2023) :warning:
+> **Warning**: 🛑 Migration 🛑 (coming in the end of 02/2023) :warning:
 > - create db instead of using the one from Replit,
 > - use docker,
 > - add web interface,
