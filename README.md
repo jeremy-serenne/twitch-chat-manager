@@ -11,7 +11,7 @@
 > - retrieve chat history,
 > - and automate certain tasks such as responding to certain keywords or phrases in the chat.
 
-> 🚨 **Info**: It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
+> :info: **Info**: It is not intended to be used to artificially inflate view count or engagement on a Twitch channel and should be used in compliance with Twitch's terms of service and community guidelines.
 
 ## Disclaimer
 
